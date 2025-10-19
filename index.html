@@ -1,64 +1,201 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amanot Ullah - প্রফাইল</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #e0f7fa, #f0f8ff);
-            color: #333;
-        }
-        header {
-            background-color: #00796b;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        .profile-card {
-            background-color: white;
-            max-width: 600px;
-            margin: 30px auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            padding: 20px;
-            text-align: center;
-        }
-        .profile-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 4px solid #00796b;
-        }
-        .profile-card h2 {
-            margin: 10px 0;
-            color: #00796b;
-        }
-        .profile-card p {
-            margin: 8px 0;
-            font-size: 1.1rem;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #00796b;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: 50px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanot Ullah - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ================= Background animation ================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(270deg, #e0f7fa, #f0f8ff, #b2dfdb, #e0f7fa);
+    background-size: 800% 800%;
+    animation: gradientBG 20s ease infinite;
+    color: #333;
+}
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ================= Header ================= */
+header {
+    background-color: rgba(0,121,107,0.9);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* ================= Profile Card ================= */
+.profile-card {
+    background: rgba(255,255,255,0.95);
+    max-width: 650px;
+    margin: 50px auto;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    padding: 40px 25px;
+    text-align: center;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+.profile-card img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid #00796b;
+    box-shadow: 0 0 15px rgba(0,121,107,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.profile-card img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0,121,107,0.7);
+}
+.profile-card h2 {
+    margin: 15px 0 15px;
+    color: #00796b;
+    font-size: 2rem;
+}
+.profile-card p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* ================= Social Links ================= */
+.social-links {
+    margin-top: 25px;
+}
+.social-links a {
+    color: #00796b;
+    margin: 0 15px;
+    font-size: 2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.social-links a:hover {
+    color: #004d40;
+    transform: scale(1.3) rotate(-10deg);
+}
+
+/* ================= Sections ================= */
+.section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+.section h2 {
+    text-align: center;
+    color: #00796b;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* ========== Education Timeline ========== */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 30px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #00796b;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: #00796b;
+    border-radius: 50%;
+}
+.timeline-item p {
+    margin: 5px 0 0 20px;
+}
+
+/* ========== Skills ========== */
+.skill {
+    margin-bottom: 20px;
+}
+.skill-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.skill-bar {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.skill-bar-fill {
+    height: 15px;
+    background: #00796b;
+    width: 0%;
+    border-radius: 20px;
+    transition: width 1s ease-in-out;
+}
+
+/* ========== Projects ========== */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.project-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ================= Footer ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,121,107,0.9);
+    color: white;
+    margin-top: 50px;
+}
+
+/* ================= Responsive ================= */
+@media(max-width: 600px){
+    .projects {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -66,14 +203,69 @@
     <h1>Amanot Ullah</h1>
 </header>
 
+<!-- Profile Card -->
 <div class="profile-card">
-    <!-- আপনার প্রোফাইল ছবি -->
     <img src="aaa2e633-626b-43d5-bc2a-fecc153b3f77.png" alt="Amanot Ullah প্রোফাইল ছবি">
+    <h2>Amanot ullah</h2>
     
-    <h2>শিক্ষাগত তথ্য</h2>
-    <p><strong>মাধ্যমিক শিক্ষা:</strong> Comilla Yousuf High School (2020 - 2024)</p>
-    <p><strong>বর্তমান শিক্ষা:</strong> Comilla Polytechnic Institute</p>
-    <p><strong>বিষয়:</strong> Computer Science and Technology</p>
+
+    <div class="social-links">
+        <a href="https://github.com/Amanot1/Myweb" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:amanutullah3@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+8801768204702" title="Call"><i class="fas fa-phone"></i></a>
+    </div>
+</div>
+
+<!-- Education Section -->
+<div class="section">
+    <h2>Education</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <p><strong>Yousuf High School</strong> (2020 - 2024) - Secondary Education</p>
+        </div>
+        <div class="timeline-item">
+            <p><strong>Comilla Polytechnic Institute</strong> (2024 - Present) - Computer Science and Technology</p>
+        </div>
+    </div>
+</div>
+
+<!-- Skills Section -->
+<div class="section">
+    <h2>Skills</h2>
+    <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">python</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<div class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <h3>MyWeb Project</h3>
+            <p>Personal Portfolio Website hosted on GitHub Pages</p>
+            <a href="https://github.com/Amanot1/Myweb" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Sample Project 2</h3>
+            <p>Example Project Description</p>
+            <a href="#">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Sample Project 3</h3>
+            <p>Example Project Description</p>
+            <a href="#">View Project</a>
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -82,4 +274,3 @@
 
 </body>
 </html>
-

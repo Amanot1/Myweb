@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>আমার ক্লাস নোট</title>
+<title> ক্লাস নোট</title>
 <style>
     body {
         font-family: 'Noto Sans Bengali', sans-serif;
@@ -19,10 +19,7 @@
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    h1 {
-        text-align: center;
-        color: #2c3e50;
-    }
+    h1 { text-align: center; color: #2c3e50; }
     select, input, textarea, button {
         width: 100%;
         margin: 10px 0;
@@ -37,77 +34,84 @@
         border: none;
         cursor: pointer;
     }
-    button:hover {
-        background: #2980b9;
-    }
+    button:hover { background: #2980b9; }
     .note {
         background: #ecf0f1;
         padding: 10px;
         border-radius: 8px;
         margin-top: 10px;
     }
+    .meta { font-weight:bold; }
 </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📚 আমার ক্লাস নোট</h1>
+<div class="container">
+    <h1>📚  ক্লাস নোট</h1>
 
-        <label>বিষয় নির্বাচন করো:</label>
-        <select id="subject">
-            <option value="রসায়ন">রসায়ন</option>
-            <option value="বাংলা ২">বাংলা ২</option>
-            <option value="ইংরেজি ২">ইংরেজি ২</option>
-            <option value="পাইথন">পাইথন</option>
-            <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>
-            <option value="ম্যাথ ২">ম্যাথ ২</option>
-        </select>
+    <label>বিষয় নির্বাচন করো:</label>
+    <select id="subject">
+        <option value="রসায়ন">রসায়ন</option>
+        <option value="বাংলা ২">বাংলা ২</option>
+        <option value="ইংরেজি ২">ইংরেজি ২</option>
+        <option value="পাইথন">পাইথন</option>
+        <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>
+        <option value="গণিত ২">গণিত ২</option>
+    </select>
 
-        <label>তারিখ:</label>
-        <input type="date" id="date">
+    <label>তারিখ:</label>
+    <input type="date" id="date">
 
-        <label>আজকের নোট লিখো:</label>
-        <textarea id="note" rows="5" placeholder="আজ কি পড়লে লিখে রাখো..."></textarea>
+    <label>আজকের ক্লাসের নোট লিখো:</label>
+    <textarea id="note" rows="5" placeholder="আজকের পড়া লিখ...."></textarea>
 
-        <button onclick="saveNote()">💾 সংরক্ষণ করো</button>
+    <button onclick="generateNoteCode()">📄 Generate Code</button>
 
-        <h3>📅 সংরক্ষিত নোট:</h3>
-        <div id="notes"></div>
-    </div>
+    <h3>📅 সংরক্ষিত নোট:</h3>
+    <div id="notes"></div>
+</div>
 
 <script>
-    function saveNote() {
-        const subject = document.getElementById('subject').value;
-        const date = document.getElementById('date').value;
-        const note = document.getElementById('note').value;
+// ========================
+// এখানে তোমার সকল নোট লিখবে
+// ========================
+const allNotes = [
+  { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।" },
 
-        if (!date || !note) {
-            alert("অনুগ্রহ করে তারিখ এবং নোট লিখো!");
-            return;
-        }
+];
 
-        const allNotes = JSON.parse(localStorage.getItem('notes') || '[]');
-        allNotes.push({ subject, date, note });
-        localStorage.setItem('notes', JSON.stringify(allNotes));
-        showNotes();
-        document.getElementById('note').value = "";
-    }
+// ওয়েবসাইটে দেখানো
+function showNotes() {
+    const notesDiv = document.getElementById('notes');
+    notesDiv.innerHTML = "";
+    allNotes.sort((a,b) => new Date(b.date) - new Date(a.date));
+    allNotes.forEach(n => {
+        notesDiv.innerHTML += `
+            <div class="note">
+                <div class="meta">${n.date} — ${n.subject}</div>
+                <div>${n.note}</div>
+            </div>
+        `;
+    });
+}
 
-    function showNotes() {
-        const notesDiv = document.getElementById('notes');
-        notesDiv.innerHTML = "";
-        const allNotes = JSON.parse(localStorage.getItem('notes') || '[]');
-        allNotes.sort((a,b) => new Date(b.date) - new Date(a.date));
-        allNotes.forEach(n => {
-            notesDiv.innerHTML += `
-                <div class="note">
-                    <b>${n.date} — ${n.subject}</b><br>
-                    ${n.note}
-                </div>
-            `;
-        });
-    }
 
-    showNotes();
+// নতুন নোট কোড জেনারেট করা
+function generateNoteCode() {
+    const subject = document.getElementById('subject').value;
+    const date = document.getElementById('date').value;
+    const note = document.getElementById('note').value;
+
+    if(!date || !note) return alert("অনুগ্রহ করে তারিখ এবং নোট লিখো!");
+
+    const code = `
+{ subject: "${subject}", date: "${date}", note: "${note}" },
+`;
+
+    navigator.clipboard.writeText(code);
+    alert("✅ কোড কপি হয়ে গেছে! \nএখন allNotes array-এ পেস্ট করো।");
+}
+
+showNotes();
 </script>
 </body>
 </html>

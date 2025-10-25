@@ -1,288 +1,259 @@
 Efforts are useless when
-you're not the one she wants:)
+you're not the one she wents :)
 <!DOCTYPE html>
-<html lang="bn">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>📚 ক্লাস নোট</title>  
-<style>  
-    body {  
-        font-family: 'Noto Sans Bengali', sans-serif;  
-        background: linear-gradient(135deg, #a1c4fd, #c2e9fb);  
-        margin: 0;  
-        padding: 0;  
-        color: #2f3640;  
-    }  
-    h1, h3 {  
-        text-align: center;  
-        color: #2c3e50;  
-        margin-bottom: 15px;  
-    }  
-    .container {  
-        max-width: 800px;  
-        margin: 40px auto;  
-        background: #fff;  
-        padding: 30px 25px;  
-        border-radius: 20px;  
-        box-shadow: 0 8px 25px rgba(0,0,0,0.12);  
-        transition: all 0.3s ease-in-out;  
-        position: relative;  
-    }  
-    label { font-weight: 600; margin-top: 10px; display: block; }  
-    select, input, textarea, button {  
-        width: 100%;  
-        margin: 10px 0;  
-        padding: 14px 12px;  
-        border-radius: 12px;  
-        border: 1px solid #ccc;  
-        font-size: 16px;  
-        box-sizing: border-box;  
-        transition: all 0.3s ease;  
-    }  
-    select:focus, input:focus, textarea:focus {  
-        border-color: #3498db;  
-        box-shadow: 0 0 8px rgba(52,152,219,0.3);  
-        outline: none;  
-    }  
-    textarea { resize: vertical; min-height: 120px; }  
-    button {  
-        background: linear-gradient(135deg, #3498db, #2ecc71);  
-        color: white;  
-        border: none;  
-        cursor: pointer;  
-        font-weight: bold;  
-        font-size: 16px;  
-        transition: all 0.3s ease;  
-    }  
-    button:hover {  
-        transform: scale(1.05);  
-        background: linear-gradient(135deg, #2ecc71, #3498db);  
-        box-shadow: 0 6px 15px rgba(0,0,0,0.2);  
-    }  
-    .note {  
-        padding: 18px 15px;  
-        border-radius: 15px;  
-        margin-top: 15px;  
-        color: #2f3640;  
-        background: #f9f9f9;  
-        border-left: 5px solid #3498db;  
-        position: relative;  
-        transition: transform 0.2s, box-shadow 0.2s;  
-    }  
-    .note:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }  
-    .meta { font-weight:bold; color: #2c3e50; margin-bottom: 5px; }  
-    .tag { display: inline-block; padding: 3px 10px; font-size: 12px; border-radius: 8px; margin-left: 10px; color: white; font-weight: 500; }  
-    .tag-test { background: #e74c3c; }  
-    .tag-homework { background: #f39c12; }  
-    .tag-lecture { background: #8e44ad; }  
-    #codeBox { background: #2f3640; color: #f5f6fa; padding: 15px; border-radius: 12px; font-family: monospace; white-space: pre-wrap; margin-top: 15px; display: none; overflow-x: auto; }  
-    #livePreview { background: #f1f2f6; padding: 15px; border-radius: 12px; margin-top: 15px; border-left: 4px dashed #3498db; }  
-    #livePreview h4 { margin: 0; color: #2f3640; }  
-    #livePreview small { color: #718093; }  
-    #livePreview p { margin: 5px 0 0 0; }  
-    .read-more { color: #3498db; cursor: pointer; font-weight: bold; font-size: 13px; }  
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 ক্লাস নোট</title>
+<style>
+    body { font-family: 'Noto Sans Bengali', sans-serif; background: linear-gradient(135deg, #a1c4fd, #c2e9fb); margin: 0; padding: 0; color: #2f3640; }
+    h1, h3 { text-align: center; color: #2c3e50; margin-bottom: 15px; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); position: relative; }
+    label { font-weight: 600; margin-top: 10px; display: block; }
+    select, input, textarea, button { width: 100%; margin: 10px 0; padding: 14px 12px; border-radius: 12px; border: 1px solid #ccc; font-size: 16px; box-sizing: border-box; transition: all 0.3s ease; }
+    select:focus, input:focus, textarea:focus { border-color: #3498db; box-shadow: 0 0 8px rgba(52,152,219,0.3); outline: none; }
+    textarea { resize: vertical; min-height: 120px; }
+    button { background: linear-gradient(135deg, #3498db, #2ecc71); color: white; border: none; cursor: pointer; font-weight: bold; font-size: 16px; transition: all 0.3s ease; }
+    button:hover { transform: scale(1.05); background: linear-gradient(135deg, #2ecc71, #3498db); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+    .note { padding: 18px 15px; border-radius: 15px; margin-top: 15px; color: #2f3640; background: #f9f9f9; border-left: 5px solid #3498db; position: relative; }
+    .meta { font-weight:bold; color: #2c3e50; margin-bottom: 5px; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 12px; border-radius: 8px; margin-left: 10px; color: white; font-weight: 500; }
+    .tag-test { background: #e74c3c; }
+    .tag-homework { background: #f39c12; }
+    .tag-seasonal { background: #1abc9c; }
+    .tag-job { background: #8e44ad; }
+    #codeBox { background: #2f3640; color: #f5f6fa; padding: 15px; border-radius: 12px; font-family: monospace; white-space: pre-wrap; margin-top: 15px; display: none; overflow-x: auto; }
+    #livePreview { background: #f1f2f6; padding: 15px; border-radius: 12px; margin-top: 15px; border-left: 4px dashed #3498db; }
+    .menu-container { position: absolute; top: 20px; right: 25px; z-index: 100; }
+    .menu-icon { font-size: 28px; cursor: pointer; background: #ffffff; border-radius: 10px; padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .menu-icon:hover { background: #f0f0f0; transform: scale(1.1); }
+    .menu-box { display: none; position: absolute; right: 0; margin-top: 10px; background: #ffffff; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.15); min-width: 200px; overflow: hidden; padding: 5px; }
+    .menu-box button { width: 100%; border: none; background: none; padding: 12px 10px; font-size: 15px; cursor: pointer; text-align: left; }
+    .menu-box button:hover { background: #f1f1f1; }
+</style>
+</head>
+<body>
 
-    /* ৩-লাইন মেনু স্টাইল */  
-    .menu-container { position: absolute; top: 20px; right: 25px; z-index: 100; }  
-    .menu-icon { font-size: 28px; cursor: pointer; background: #ffffff; border-radius: 10px; padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }  
-    .menu-icon:hover { background: #f0f0f0; transform: scale(1.1); }  
-    .menu-box { display: none; position: absolute; right: 0; margin-top: 10px; background: #ffffff; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.15); min-width: 200px; overflow: hidden; padding: 5px; }  
-    .menu-box button { width: 100%; border: none; background: none; padding: 12px 10px; font-size: 15px; cursor: pointer; text-align: left; }  
-    .menu-box button:hover { background: #f1f1f1; }  
-</style>  
-</head>  
-<body>  
-
-<!-- ৩-লাইন মেনু + PDF বাটন -->  
-<div class="menu-container">
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <div class="menu-box" id="menuBox">
-    <button onclick="openPDFSession()">📄 PDF</button>
+<!-- 🔐 Login Popup -->
+<div id="loginPopup" style="position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1000;">
+  <div style="background:#fff;padding:25px 30px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.3);max-width:300px;width:90%;text-align:center;">
+    <h3>🔐 ওয়েলকাম!</h3>
+    <p>তোমার নাম ও রোল দাও</p>
+    <input type="text" id="visitorName" placeholder="তোমার নাম">
+    <input type="text" id="visitorRoll" placeholder="তোমার রোল">
+    <button onclick="loginVisitor()">Enter</button>
   </div>
 </div>
 
-<div class="container">  
-<h1>📚  ক্লাস নোট</h1>  
+<!-- ☰ Menu -->
+<div class="menu-container">
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="menu-box" id="menuBox">
+    <button onclick="openPDFSession()">📑 PDF</button>
+  </div>
+</div>
 
-<label>Sort by:</label>  
-<select id="sortOrder">  
-    <option value="desc">New </option>  
-    <option value="asc">Oldest </option>  
-</select>  
+<div class="container">
+<h1>📚 ক্লাস নোট</h1>
 
-<label>বিষয় নির্বাচন করো:</label>  
-<select id="subject">  
-    <option value="সব">সব</option>  
-    <option value="রসায়ন">রসায়ন</option>  
-    <option value="বাংলা ২">বাংলা ২</option>  
-    <option value="ইংরেজি ২">ইংরেজি ২</option>  
-    <option value="পাইথন">পাইথন</option>  
-    <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>  
-    <option value="ম্যাথ ২">ম্যাথ ২</option>  
-    <option value="বেসিক ইলেকট্রনিকস">বেসিক ইলেকট্রনিকস</option>  
-</select>  
+<label>Sort by:</label>
+<select id="sortOrder">
+    <option value="desc">New</option>
+    <option value="asc">Oldest</option>
+</select>
 
-<label>তারিখ:</label>  
-<input type="date" id="date">  
+<label>বিষয় নির্বাচন করো:</label>
+<select id="subject">
+    <option value="সব">সব</option>
+    <option value="রসায়ন">রসায়ন</option>
+    <option value="বাংলা ২">বাংলা ২</option>
+    <option value="ইংরেজি ২">ইংরেজি ২</option>
+    <option value="পাইথন">পাইথন</option>
+    <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>
+    <option value="ম্যাথ ২">ম্যাথ ২</option>
+    <option value="বেসিক ইলেকট্রনিক্স">বেসিক ইলেকট্রনিক্স</option>
+</select>
 
-<label>ক্লাস টাইপ / ট্যাগ:</label>  
-<select id="tag">  
-    <option value="test">টেস্ট</option>  
-    <option value="homework">হোমওয়ার্ক</option>  
-    <option value="lecture">লেকচার</option>  
-</select>  
+<label>তারিখ:</label>
+<input type="date" id="date">
 
-<label>আজকের ক্লাসের নোট লিখো:</label>  
-<textarea id="note" rows="5" placeholder="আজকের পড়া লিখ...."></textarea>  
+<label>ক্লাস টাইপ / ট্যাগ:</label>
+<select id="tag">
+    <option value="test">টেস্ট</option>
+    <option value="homework">হোমওয়ার্ক</option>
+    <option value="seasonal">সেশনাল</option>
+    <option value="job">জব শিট</option>
+</select>
 
-<button onclick="generateNoteCode()">📄 Generate Code</button>  
-<button onclick="printNotes()">🖨️ Print Notes</button>  
+<label>আজকের ক্লাসের নোট লিখো:</label>
+<textarea id="note" rows="5" placeholder="আজকের পড়া লিখ...."></textarea>
 
-<div id="codeBox"></div>  
+<button onclick="generateNoteCode()">📄 Generate Code</button>
+<button onclick="printNotes()">🖨️ Print Notes</button>
 
-<h3>👀 লাইভ প্রিভিউ:</h3>  
-<div id="livePreview"></div>  
+<div id="codeBox"></div>
 
-<h3>📅 সংরক্ষিত নোট:</h3>  
+<h3>👀 লাইভ প্রিভিউ:</h3>
+<div id="livePreview"></div>
+
+<h3>📅 সংরক্ষিত নোট:</h3>
 <div id="notes"></div>
+</div>
 
-</div>  
-
-<script>  
-// পূর্বের নোট
-const allNotes = [  
-  { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।", tag: "test" },  
-  { subject: "পাইথন", date: "2025-10-23", note: "১ থেকে ৪ অধ্যায় পর্যন্ত ক্লাস টেস্ট", tag: "test" },  
-  { subject: "ইংরেজি ২", date: "2025-10-23", note: "প্রসেস রাইটিং how to open a bank account and environment clean", tag: "test" },  
-  { subject: "গ্রাফিক্স ডিজাইন", date: "2025-10-23", note: "Job 5", tag: "homework" },  
-  { subject: "ম্যাথ ২", date: "2025-10-23", note: "ক্লাস টেস্ট ৭ম অধ্যায়", tag: "test" },  
-  { subject: "বেসিক ইলেকট্রনিকস", date: "2025-10-23", note: "কুইজ টেস্ট ", tag: "test" },  
-];  
-
-// PDF Files placeholder
-const pdfFiles = [
-  { name: "রসায়ন ", url: "" },  
-  { name: "পাইথন ", url: "#" },  
-  { name: "ইংরেজি 2", url: "#" },  
-  { name: "গ্রাফিক্স ডিজাইন Job 5", url: "#" },  
-  { name: "ম্যাথ ২ ", url: "#" },  
-  { name: "বেসিক ইলেকট্রনিকস ", url: "#" },  
-  { name: "Python for Beginners", url: "https://github.com/Amanot1/Myweb/raw/main/Python.for.Programmers.pdf" } // এক্সট্রা placeholder
+<script>
+// ✅ Notes Data
+const allNotes = [
+  { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।", tag: "test" },
+  { subject: "পাইথন", date: "2025-10-23", note: "১ থেকে ৪ অধ্যায় পর্যন্ত ক্লাস টেস্ট", tag: "test" },
+  { subject: "ইংরেজি ২", date: "2025-10-23", note: "প্রসেস রাইটিং how to open a bank account and environment clean", tag: "test" },
+  { subject: "গ্রাফিক্স ডিজাইন", date: "2025-10-23", note: "Job 5", tag: "job" },
+  { subject: "ম্যাথ ২", date: "2025-10-23", note: "ক্লাস টেস্ট ৭ম অধ্যায়", tag: "test" },
+  { subject: "বেসিক ইলেকট্রনিক্স", date: "2025-10-23", note: "কুইজ টেস্ট", tag: "test" },
 ];
 
-document.getElementById('date').value = new Date().toISOString().split('T')[0];  
+// ✅ PDF Files
+const pdfFiles = [
+  { name: "রসায়ন", url: "#" },
+  { name: "পাইথন", url: "#" },
+  { name: "ইংরেজি ২", url: "#" },
+  { name: "গ্রাফিক্স ডিজাইন", url: "#" },
+  { name: "ম্যাথ ২", url: "#" },
+  { name: "বেসিক ইলেকট্রনিক্স", url: "#" },
+  { name: "Python for Beginners", url: "https://github.com/Amanot1/Myweb/raw/main/Python.for.Programmers.pdf" },
+  { name: "বাংলা ২", url: "#" }
+];
 
-function toggleMenu() {  
-  const box = document.getElementById('menuBox');  
-  box.style.display = box.style.display === 'block' ? 'none' : 'block';  
-}  
+const GOOGLE_SCRIPT_URL = "YOUR_SCRIPT_ID_HERE";
 
-// PDF Session ওপেন (PDF লিস্ট দেখাবে)
-// PDF Session ওপেন (PDF লিস্ট দেখাবে)
+// ✅ Visitor Login
+function loginVisitor() {
+  const name = document.getElementById('visitorName').value.trim();
+  const roll = document.getElementById('visitorRoll').value.trim();
+  if (!name || !roll) { alert("দয়া করে নাম ও রোল লিখো!"); return; }
+
+  localStorage.setItem("visitorName", name);
+  localStorage.setItem("visitorRoll", roll);
+  document.getElementById('loginPopup').style.display = "none";
+
+  sendVisitorData(name, roll);
+}
+
+window.addEventListener('load', () => {
+  const popup = document.getElementById('loginPopup');
+  const name = localStorage.getItem("visitorName");
+  const roll = localStorage.getItem("visitorRoll");
+  
+  if(name && roll) {
+    popup.style.display = "none";
+  } else {
+    popup.style.display = "flex";
+  }
+});
+
+// ✅ Send data to Google Sheet
+function sendVisitorData(name, roll) {
+  const data = { name, roll, page: window.location.href, browser: navigator.userAgent };
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  }).then(() => console.log("✅ Visitor logged!"))
+    .catch(err => console.error("❌ Error:", err));
+}
+
+// ✅ Toggle Menu
+function toggleMenu() {
+  const box = document.getElementById('menuBox');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+
+// ✅ PDF Session
 function openPDFSession() {
-    let pdfWindow = window.open('', '_blank');
-    pdfWindow.document.write('<html><head><title>PDF Session</title></head><body style="font-family:Noto Sans Bengali;">');
-    pdfFiles.forEach(p => {
-        pdfWindow.document.write(`
-            <div style="padding:10px;margin:10px;border-bottom:1px solid #ccc;">
-                <a href="${p.url}" target="_blank" style="text-decoration:none;color:#3498db;font-weight:bold;">
-                    ${p.name}
-                </a>
-            </div>
-        `);
-    });
-    pdfWindow.document.write('</body></html>');
-    pdfWindow.document.close();
+  let pdfWindow = window.open('', '_blank');
+  pdfWindow.document.write('<html><head><title>PDF Session</title></head><body style="font-family:Noto Sans Bengali;">');
+  pdfFiles.forEach(p => {
+    pdfWindow.document.write(`
+      <div style="padding:10px;margin:10px;border-bottom:1px solid #ccc;">
+        <a href="${p.url}" target="_blank" style="text-decoration:none;color:#3498db;font-weight:bold;">
+          ${p.name}
+        </a>
+      </div>
+    `);
+  });
+  pdfWindow.document.write('</body></html>');
+  pdfWindow.document.close();
 }
 
-// ===================== পূর্বের নোট ফাংশনালিটি =====================
+// ✅ Tag helper
+function getTagInfo(tag) {
+  switch(tag) {
+    case "test": return {cls: "tag-test", label: "টেস্ট"};
+    case "homework": return {cls: "tag-homework", label: "হোমওয়ার্ক"};
+    case "seasonal": return {cls: "tag-seasonal", label: "সেশনাল"};
+    case "job": return {cls: "tag-job", label: "জব শিট"};
+    default: return {cls: "tag-homework", label: "নোট"};
+  }
+}
+
+// ✅ Show Notes
 function showNotesBySubject(subjectFilter = "সব") {
-    const notesDiv = document.getElementById('notes');
-    notesDiv.innerHTML = "";
-    const sortOrder = document.getElementById('sortOrder').value;
-    let filtered = allNotes.filter(n => subjectFilter === "সব" || n.subject === subjectFilter);
-    filtered.sort((a,b) => sortOrder === "desc" ? new Date(b.date)-new Date(a.date) : new Date(a.date)-new Date(b.date));
+  const notesDiv = document.getElementById('notes');
+  notesDiv.innerHTML = "";
+  const sortOrder = document.getElementById('sortOrder').value;
+  let filtered = allNotes.filter(n => subjectFilter === "সব" || n.subject === subjectFilter);
+  filtered.sort((a,b) => sortOrder === "desc" ? new Date(b.date)-new Date(a.date) : new Date(a.date)-new Date(b.date));
 
-    filtered.forEach((n, idx) => {
-        let tagClass = n.tag === "test" ? "tag-test" : n.tag === "homework" ? "tag-homework" : "tag-lecture";
-        let tagLabel = n.tag === "test" ? "টেস্ট" : n.tag === "homework" ? "হোমওয়ার্ক" : "লেকচার";
-
-        const maxLength = 80;
-        let noteContent = n.note;
-        let isLong = noteContent.length > maxLength;
-        let displayedText = isLong ? noteContent.substring(0, maxLength) + "..." : noteContent;
-
-        notesDiv.innerHTML += `
-            <div class="note" data-full="${noteContent}">
-                <div class="meta">${n.date} — ${n.subject} <span class="tag ${tagClass}">${tagLabel}</span></div>
-                <div class="note-text">${displayedText}</div>
-                ${isLong ? '<span class="read-more">Read more</span>' : ''}
-            </div>
-        `;
-    });
-
-    document.querySelectorAll('.read-more').forEach(el => {
-        el.addEventListener('click', function(){
-            const parent = this.parentElement;
-            const fullText = parent.getAttribute('data-full');
-            const noteDiv = parent.querySelector('.note-text');
-            if(this.textContent === "Read more") {
-                noteDiv.textContent = fullText;
-                this.textContent = "Read less";
-            } else {
-                noteDiv.textContent = fullText.substring(0, 80) + "...";
-                this.textContent = "Read more";
-            }
-        });
-    });
+  filtered.forEach(n => {
+    const {cls, label} = getTagInfo(n.tag);
+    notesDiv.innerHTML += `
+      <div class="note">
+        <div class="meta">${n.date} — ${n.subject} <span class="tag ${cls}">${label}</span></div>
+        <div class="note-text">${n.note}</div>
+      </div>
+    `;
+  });
 }
 
+// ✅ Live Preview
 function updateLivePreview() {
-    const subject = document.getElementById('subject').value;
-    const date = document.getElementById('date').value;
-    const note = document.getElementById('note').value.trim();
-    const tag = document.getElementById('tag').value;
-    const preview = document.getElementById('livePreview');
-
-    if(!date && !note){
-        preview.innerHTML = "";
-        return;
-    }
-
-    let tagClass = tag === "test" ? "tag-test" : tag === "homework" ? "tag-homework" : "tag-lecture";
-    let tagLabel = tag === "test" ? "টেস্ট"
-    : tag === "homework" ? "হোমওয়ার্ক" : "লেকচার";
+  const subject = document.getElementById('subject').value;
+  const date = document.getElementById('date').value;
+  const note = document.getElementById('note').value.trim();
+  const tag = document.getElementById('tag').value;
+  const preview = document.getElementById('livePreview');
+  if(!note) { preview.innerHTML = ""; return; }
+  const {cls, label} = getTagInfo(tag);
   preview.innerHTML = `
     <div class="note">
-      <div class="meta">${date} — ${subject} <span class="tag ${tagClass}">${tagLabel}</span></div>
+      <div class="meta">${date} — ${subject} <span class="tag ${cls}">${label}</span></div>
       <div class="note-text">${note}</div>
     </div>
   `;
 }
 
-// Generate Note Code + add to allNotes
+// ✅ Generate New Note
 function generateNoteCode() {
   const subject = document.getElementById('subject').value;
   const date = document.getElementById('date').value;
   const note = document.getElementById('note').value.trim();
   const tag = document.getElementById('tag').value;
-
   if (!note) { alert("নোট খালি হতে পারবে না!"); return; }
 
   const newNote = { subject, date, note, tag };
   allNotes.push(newNote);
 
-  const code = `allNotes.push(${JSON.stringify(newNote)});`;
   const codeBox = document.getElementById('codeBox');
   codeBox.style.display = "block";
-  codeBox.textContent = code;
+  codeBox.textContent = JSON.stringify(newNote, null, 2);
 
   showNotesBySubject(document.getElementById('subject').value);
   updateLivePreview();
 }
 
-// Print Notes
+// ✅ Print Notes
 function printNotes() {
   let printWindow = window.open('', '_blank');
   printWindow.document.write('<html><head><title>Print Notes</title></head><body>');
@@ -299,18 +270,21 @@ function printNotes() {
   printWindow.print();
 }
 
-// Event Listeners
+// ✅ Event Listeners
 document.getElementById('subject').addEventListener('change', () => showNotesBySubject(document.getElementById('subject').value));
 document.getElementById('sortOrder').addEventListener('change', () => showNotesBySubject(document.getElementById('subject').value));
 document.getElementById('note').addEventListener('input', updateLivePreview);
 document.getElementById('tag').addEventListener('change', updateLivePreview);
 document.getElementById('date').addEventListener('change', updateLivePreview);
 
-// Initial Load
+document.getElementById('date').value = new Date().toISOString().split('T')[0];
 showNotesBySubject();
 updateLivePreview();
 </script>
 </body>
 </html>
+
+
+
 
 

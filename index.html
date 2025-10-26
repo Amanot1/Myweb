@@ -103,31 +103,35 @@ background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:cente
 </div>
 
 <script>
-// ✅ Notes Data
 const allNotes = [
   { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।", tag: "test" },
   { subject: "পাইথন", date: "2025-10-23", note: "১ থেকে ৪ অধ্যায় পর্যন্ত ক্লাস টেস্ট", tag: "test" },
   { subject: "ইংরেজি ২", date: "2025-10-23", note: "প্রসেস রাইটিং how to open a bank account and environment clean", tag: "test" },
   { subject: "গ্রাফিক্স ডিজাইন", date: "2025-10-23", note: "Job 5", tag: "job" },
-  { subject: "ম্যাথ ২", date: "2025-10-23", note: "ক্লাস টেস্ট ৭ম অধ্যায়", tag: "test" },
+  {
+  "subject": "ম্যাথ ২",
+  "date": "2025-10-26",
+  "note": "mid exam 1 to 8 unit",
+  "tag": "homework"
+},
   { subject: "বেসিক ইলেকট্রনিক্স", date: "2025-10-23", note: "কুইজ টেস্ট", tag: "test" },
 ];
 
-// ✅ PDF Files
+// ✅ Updated PDF list
 const pdfFiles = [
-  { name: "রসায়ন", url: "#" },
-  { name: "পাইথন", url: "#" },
-  { name: "ইংরেজি ২", url: "#" },
-  { name: "গ্রাফিক্স ডিজাইন", url: "#" },
-  { name: "ম্যাথ ২", url: "#" },
-  { name: "বেসিক ইলেকট্রনিক্স", url: "#" },
+  { name: "বাংলা ২", url: "https://github.com/Amanot1/Myweb/raw/main/Bangla%202.pdf" },
+  { name: "ম্যাথ ২", url: "https://github.com/Amanot1/Myweb/raw/main/Math%202.pdf" },
+  { name: "বেসিক ইলেকট্রনিক্স", url: "https://github.com/Amanot1/Myweb/raw/main/besic%20electronics.pdf" },
+  { name: "রসায়ন", url: "https://github.com/Amanot1/Myweb/raw/main/chemestry.pdf" },
+  { name: "পাইথন", url: "https://github.com/Amanot1/Myweb/raw/main/python.pdf" },
   { name: "Python for Beginners", url: "https://github.com/Amanot1/Myweb/raw/main/Python.for.Programmers.pdf" },
-  { name: "বাংলা ২", url: "#" }
+  { name: "ইংরেজি ২", url: "https://github.com/Amanot1/Myweb/raw/main/English%202.pdf" },
+  { name: "Suggestion Book 2024", url: "https://github.com/Amanot1/Myweb/raw/main/suggestion%20book%202024.pdf" }
 ];
+
 
 const GOOGLE_SCRIPT_URL = "YOUR_SCRIPT_ID_HERE";
 
-// ✅ Visitor Login
 function loginVisitor() {
   const name = document.getElementById('visitorName').value.trim();
   const roll = document.getElementById('visitorRoll').value.trim();
@@ -136,41 +140,20 @@ function loginVisitor() {
   localStorage.setItem("visitorName", name);
   localStorage.setItem("visitorRoll", roll);
   document.getElementById('loginPopup').style.display = "none";
-
-  sendVisitorData(name, roll);
 }
 
 window.addEventListener('load', () => {
   const popup = document.getElementById('loginPopup');
   const name = localStorage.getItem("visitorName");
   const roll = localStorage.getItem("visitorRoll");
-  
-  if(name && roll) {
-    popup.style.display = "none";
-  } else {
-    popup.style.display = "flex";
-  }
+  if(name && roll) popup.style.display = "none";
 });
 
-// ✅ Send data to Google Sheet
-function sendVisitorData(name, roll) {
-  const data = { name, roll, page: window.location.href, browser: navigator.userAgent };
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  }).then(() => console.log("✅ Visitor logged!"))
-    .catch(err => console.error("❌ Error:", err));
-}
-
-// ✅ Toggle Menu
 function toggleMenu() {
   const box = document.getElementById('menuBox');
   box.style.display = box.style.display === 'block' ? 'none' : 'block';
 }
 
-// ✅ PDF Session
 function openPDFSession() {
   let pdfWindow = window.open('', '_blank');
   pdfWindow.document.write('<html><head><title>PDF Session</title></head><body style="font-family:Noto Sans Bengali;">');
@@ -187,7 +170,6 @@ function openPDFSession() {
   pdfWindow.document.close();
 }
 
-// ✅ Tag helper
 function getTagInfo(tag) {
   switch(tag) {
     case "test": return {cls: "tag-test", label: "টেস্ট"};
@@ -198,7 +180,6 @@ function getTagInfo(tag) {
   }
 }
 
-// ✅ Show Notes
 function showNotesBySubject(subjectFilter = "সব") {
   const notesDiv = document.getElementById('notes');
   notesDiv.innerHTML = "";
@@ -217,7 +198,6 @@ function showNotesBySubject(subjectFilter = "সব") {
   });
 }
 
-// ✅ Live Preview
 function updateLivePreview() {
   const subject = document.getElementById('subject').value;
   const date = document.getElementById('date').value;
@@ -234,7 +214,6 @@ function updateLivePreview() {
   `;
 }
 
-// ✅ Generate New Note
 function generateNoteCode() {
   const subject = document.getElementById('subject').value;
   const date = document.getElementById('date').value;
@@ -253,7 +232,6 @@ function generateNoteCode() {
   updateLivePreview();
 }
 
-// ✅ Print Notes
 function printNotes() {
   let printWindow = window.open('', '_blank');
   printWindow.document.write('<html><head><title>Print Notes</title></head><body>');
@@ -270,7 +248,6 @@ function printNotes() {
   printWindow.print();
 }
 
-// ✅ Event Listeners
 document.getElementById('subject').addEventListener('change', () => showNotesBySubject(document.getElementById('subject').value));
 document.getElementById('sortOrder').addEventListener('change', () => showNotesBySubject(document.getElementById('subject').value));
 document.getElementById('note').addEventListener('input', updateLivePreview);
@@ -283,6 +260,7 @@ updateLivePreview();
 </script>
 </body>
 </html>
+
 
 
 

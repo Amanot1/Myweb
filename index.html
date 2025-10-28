@@ -136,6 +136,227 @@ function showTab(tabId){
   document.querySelectorAll('.tab-section').forEach(s => s.style.display='none');
   document.getElementById(tabId).style.display='block';
 }
+
+// === ক্লাস নোট ===
+function toggleNoteInput(){
+  const box=document.getElementById('noteInputBox');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+}
+
+const allNotes = [
+  { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।", tag: "test" },
+  { subject: "ইংরেজি ২", date: "2025-10-23", note: "প্রসেস রাইটিং how to open a bank account and environment clean", tag: "test" },
+  { subject: "গ্রাফিক্স ডিজাইন", date: "2025-10-23", note: "Job 6, sceal tool", tag: "job" },
+];
+
+const pdfFiles = [
+  { name: "রসায়ন", url: "https://github.com/Amanot1/Myweb/raw/main/chemestry.pdf"},
+  { name: "পাইথন", url: "https://github.com/Amanot1/Myweb/raw/main/python.pdf" },
+  { name: "ইংরেজি ২", url: "#" },
+  { name: "গ্রাফিক্স ডিজাইন", url: "#" },
+  { name: "ম্যাথ ২", url: "https://github.com/Amanot1/Myweb/raw/main/Math%202.pdf" },
+  { name: "বেসিক ইলেকট্রনিক্স", url: "https://github.com/Amanot1/Myweb/raw/main/besic%20electronics.pdf" },
+  { name: "Python for Beginners", url: "https://github.com/Amanot1/Myweb/raw/main/Python.for.Programmers.pdf" },
+  { name: "বাংলা ২", url: "https://github.com/Amanot1/Myweb/raw/main/Bangla%202.pdf" },
+  { name: "সাজেশন বই ২০২৪", url: "https://github.com/Amanot1/Myweb/raw/main/suggestion%20book%202024.pdf" }
+];
+
+function renderPDFList(){
+  const container = document.getElementById('pdfList');
+  container.innerHTML = '';
+  pdfFiles.forEach(p=>{
+    container.innerHTML += `<div style="margin-bottom:10px;"><a href="${p.url}" target="_blank">${p.name}</a></div>`;
+  });
+}
+
+function getTagInfo(tag){
+  switch(tag){
+    case "test": return {cls:"tag-test", label:"টেস্ট"};
+    case "homework": return {cls:"tag-homework", label:"হোমওয়ার্ক"};
+    case "seasonal": return {cls:"tag-seasonal", label:"সেশনাল"};
+    case "job": return {cls:"tag-job", label:"জব শিট"};
+    default: return {cls:"tag-homework", label:"নোট"};
+  }
+}
+
+function showNotesBySubject(subjectFilter="সব"){
+  const notesDiv = document.getElementById('notes');
+  notesDiv.innerHTML = "";
+  allNotes.filter(n => subjectFilter==="সব" || n.subject===subjectFilter)
+          .forEach(n=>{
+            const {cls,label}=getTagInfo(n.tag);
+            notesDiv.innerHTML += `
+              <div class="note">
+                <div class="meta">${n.date} — ${n.subject} <span class="tag ${cls}">${label}</span></div>
+                <div class="note-text">${n.note}</div>
+              </div>`;
+          });
+}
+
+function updateLivePreview(){
+  const subject=document.getElementById('subject').value;
+  const date=document.getElementById('date').value;
+  const note=document.getElementById('note').value.trim();
+  const tag=document.getElementById('tag').value;
+  const preview=document.getElementById('livePreview');
+  if(!note){ preview.innerHTML=""; return; }
+  const {cls,label}=getTagInfo(tag);
+  preview.innerHTML=`<div class="note"><div class="meta">${date} — ${subject} <span class="tag ${cls}">${label}</span></div><div class="note-text">${note}</div></div>`;
+}
+
+function generateNoteCode(){
+  const subject=document.getElementById('subject').value;
+  const date=document.getElementById('date').value;
+  const note=document.getElementById('note').value.trim();
+  const tag=document.getElementById('tag').value;
+  if(!note){ alert("নোট খালি হতে পারবে না!"); return; }
+  const newNote={subject,date,note,tag};
+  allNotes.push(newNote);
+  const codeBox=document.getElementById('codeBox');
+  codeBox.style.display="block";
+  codeBox.textContent=JSON.stringify(newNote,null,2);
+  showNotesBySubject(subject);
+  updateLivePreview();
+}
+
+function printNotes(){
+  let printWindow=window.open('','_blank');
+  printWindow.document.write('<html><head><title>Print Notes</title></head><body>');
+  allNotes.forEach(n=>{
+    printWindow.document.write(`
+      <div style="margin-bottom:15px;">
+        <strong>${n.date} — ${n.subject}</strong> [${n.tag}]
+        <p>${n.note}</p>
+      </div>
+    `);
+  });
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.print();
+}
+
+document.getElementById('subject').addEventListener('change', ()=>showNotesBySubject(document.getElementById('subject').value));
+document.getElementById('note').addEventListener('input', updateLivePreview);
+document.getElementById('tag').addEventListener('change', updateLivePreview);
+document.getElementById('date').addEventListener('change', updateLivePreview);
+document.getElementById('date').value=new Date().toISOString().split('T')[0];
+showNotesBySubject();
+updateLivePreview();
+renderPDFList();
+  // === মিডটার্ম / ফাইনাল ===
+function toggleMidInput(){
+  const box=document.getElementById('midInputBox');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+}
+
+const midNotes = [
+  { subject: "রসায়ন", date: "2025-10-24", note: "মিডটার্ম ১ম অধ্যায় থেকে ৭ম বা ৮ম অধ্যায় ", tag: "exam" },
+  { subject: "পাইথন", date: "2025-10-24", note: "মিডটার্ম ১ থেকে ৬ অধ্যায় পর্যন্ত", tag: "exam" },
+  { subject: "ইংরেজি ২", date: "2025-10-24", note: "seen model (unit 1-5). grammar (voice,Right from of verb,prepositions,sentence structure), composition-story(Thirsty crow, Clever fox, The hare and tortoise, Hamelin, Honest wood cuter, Unity is Strength), Dialogue(Choice of career, Importance of learning English, Technical education, Tree plantation, and stranger) নোট এই গুলো থেকে মিডটার্মে আসবে। ম্যাম বলছে এই গুলো থেকে পরিক্ষার আগে কমিয়ে দিবে ", tag: "exam" },
+  { subject: "বাংলা ২", date: "2025-10-24", note: "ব্যাকারণ বা পরিচ্ছেদ(১ থেকে ৪), ভাবসম্প্রসারন(স্বাধীনতা অর্জনের চেয়ে..., সুশিক্ষিত লোক মাত্র..., দুর্জন বিদ্বান হলেও..., মানুষ বাঁচে কর্মের...) সারাংশ(সব, মানে নির্দিষ্ট নেই), জীবনবৃত্তান্ত (উপ সহকারী প্রকৌশলী পদে..., চাকরির জন্য...) নোট এই গুলো থেকে মিডটার্মে আসবে", tag: "exam" },
+  { subject: "ম্যাথ ২", date: "2025-10-28", note: "ম্যাথ মিডটার্ম ১ম থেকে ৮ম অধ্যায়", tag: "exam" },
+  { subject: "বেসিক ইলেকট্রনিক্স", date: "2025-10-28", note: "বেসিক ইলেকট্রনিক্স ১ম থেকে ৫ম অধ্যায়", tag: "exam" }
+];
+
+function getMidTagInfo(tag){
+  switch(tag){
+    case "exam": return {cls:"tag-test", label:"পরীক্ষা"};
+    case "practical": return {cls:"tag-homework", label:"ব্যবহারিক"};
+    default: return {cls:"tag-homework", label:"নোট"};
+  }
+}
+
+function showMidNotes(subjectFilter="সব"){
+  const notesDiv=document.getElementById('midNotes');
+  notesDiv.innerHTML="";
+  midNotes.filter(n=>subjectFilter==="সব" || n.subject===subjectFilter)
+          .forEach(n=>{
+            const {cls,label}=getMidTagInfo(n.tag);
+            notesDiv.innerHTML+=`<div class="note"><div class="meta">${n.date} — ${n.subject} <span class="tag ${cls}">${label}</span></div><div class="note-text">${n.note}</div></div>`;
+          });
+}
+
+function updateMidLivePreview(){
+  const subject=document.getElementById('midSubject').value;
+  const date=document.getElementById('midDate').value;
+  const note=document.getElementById('midNote').value.trim();
+  const tag=document.getElementById('midTag').value;
+  const preview=document.getElementById('midLivePreview');
+  if(!note){ preview.innerHTML=""; return; }
+  const {cls,label}=getMidTagInfo(tag);
+  preview.innerHTML=`<div class="note"><div class="meta">${date} — ${subject} <span class="tag ${cls}">${label}</span></div><div class="note-text">${note}</div></div>`;
+}
+
+function generateMidNoteCode(){
+  const subject=document.getElementById('midSubject').value;
+  const date=document.getElementById('midDate').value;
+  const note=document.getElementById('midNote').value.trim();
+  const tag=document.getElementById('midTag').value;
+  if(!note){ alert("নোট খালি হতে পারবে না!"); return; }
+  const newNote={subject,date,note,tag};
+  midNotes.push(newNote);
+  const codeBox=document.getElementById('midCodeBox');
+  codeBox.style.display="block";
+  codeBox.textContent = JSON.stringify(newNote, null, 2);
+  showMidNotes(subject);
+  updateMidLivePreview();
+}
+
+function printMidNotes(){
+  let printWindow = window.open('', '_blank');
+  printWindow.document.write('<html><head><title>Print Mid Notes</title></head><body>');
+  midNotes.forEach(n => {
+    printWindow.document.write(
+      `<div style="margin-bottom:15px;">
+         <strong>${n.date} — ${n.subject}</strong> [${n.tag}]
+         <p>${n.note}</p>
+       </div>`
+    );
+  });
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.print();
+}
+
+document.getElementById('midSubject').addEventListener('change', ()=>showMidNotes(document.getElementById('midSubject').value));
+document.getElementById('midNote').addEventListener('input', updateMidLivePreview);
+document.getElementById('midTag').addEventListener('change', updateMidLivePreview);
+document.getElementById('midDate').addEventListener('change', updateMidLivePreview);
+document.getElementById('midDate').value = new Date().toISOString().split('T')[0];
+showMidNotes();
+updateMidLivePreview();
+
+// Default tab
+showTab('classNotes');
+</script>
+</body>
+</html>
+      <button onclick="generateMidNoteCode()">📄 Generate Code</button>
+      <button onclick="printMidNotes()">🖨️ Print Notes</button>
+
+      <div id="midCodeBox"></div>
+
+      <h3>👀 লাইভ প্রিভিউ:</h3>
+      <div id="midLivePreview"></div>
+    </div>
+
+    <h3>📅 সংরক্ষিত নোট:</h3>
+    <div id="midNotes"></div>
+  </div>
+
+  <!-- ===== PDF / বই সেশন ===== -->
+  <div id="pdfSession" class="tab-section">
+    <h2>📑 PDF / বই সেশন</h2>
+    <div id="pdfList"></div>
+  </div>
+
+</div>
+
+<script>
+function showTab(tabId){
+  document.querySelectorAll('.tab-section').forEach(s => s.style.display='none');
+  document.getElementById(tabId).style.display='block';
+}
   // === ক্লাস নোট ===
 function toggleNoteInput(){
   const box=document.getElementById('noteInputBox');
@@ -335,4 +556,5 @@ showTab('classNotes');
 </script>
 </body>
 </html>
+
 

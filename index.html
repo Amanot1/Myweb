@@ -1,156 +1,173 @@
-© Amanot. cumilla Polytechnic Institute, 2nd shitf,2nd semester :)
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📚 নোট এবং মিডটার্ম / ফাইনাল</title>
-<style>
-  body { font-family: 'Noto Sans Bengali', sans-serif; background: linear-gradient(135deg, #a1c4fd, #c2e9fb); margin: 0; padding: 0; color: #2f3640; }
-  h1, h3 { text-align: center; color: #2c3e50; margin-bottom: 15px; }
-  .container { max-width: 900px; margin: 40px auto; background: #fff; padding: 30px 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); position: relative; }
-  label { font-weight: 600; margin-top: 10px; display: block; }
-  select, input, textarea, button { width: 100%; margin: 10px 0; padding: 14px 12px; border-radius: 12px; border: 1px solid #ccc; font-size: 16px; box-sizing: border-box; transition: all 0.3s ease; }
-  select:focus, input:focus, textarea:focus { border-color: #3498db; box-shadow: 0 0 8px rgba(52,152,219,0.3); outline: none; }
-  textarea { resize: vertical; min-height: 120px; }
-  button { background: linear-gradient(135deg, #3498db, #2ecc71); color: white; border: none; cursor: pointer; font-weight: bold; font-size: 16px; transition: all 0.3s ease; }
-  button:hover { transform: scale(1.05); background: linear-gradient(135deg, #2ecc71, #3498db); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-  .note { padding: 18px 15px; border-radius: 15px; margin-top: 15px; color: #2f3640; background: #f9f9f9; border-left: 5px solid #3498db; position: relative; }
-  .meta { font-weight:bold; color: #2c3e50; margin-bottom: 5px; }
-  .tag { display: inline-block; padding: 3px 10px; font-size: 12px; border-radius: 8px; margin-left: 10px; color: white; font-weight: 500; }
-  .tag-test { background: #e74c3c; }
-  .tag-homework { background: #f39c12; }
-  .tag-seasonal { background: #1abc9c; }
-  .tag-job { background: #8e44ad; }
-  #codeBox, #midCodeBox { background: #2f3640; color: #f5f6fa; padding: 15px; border-radius: 12px; font-family: monospace; white-space: pre-wrap; margin-top: 15px; display: none; overflow-x: auto; }
-  #livePreview, #midLivePreview { background: #f1f2f6; padding: 15px; border-radius: 12px; margin-top: 15px; border-left: 4px dashed #3498db; }
-  .tab-buttons { display: flex; justify-content: center; margin-bottom: 20px; gap: 10px; flex-wrap: wrap; }
-  .tab-buttons button { width: auto; padding: 10px 20px; font-size: 16px; }
-  .tab-section { display: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>২য় সেমিস্টার ক্লা</title>
+  <style>
+    body {
+      font-family: "Noto Sans Bengali", sans-serif;
+      background-color: #f4f7fb;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+      display: none;
+    }
+
+    ul li {
+      background: #ffffff;
+      margin: 8px auto;
+      width: 250px;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    ul li a:hover {
+      color: #0056b3;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>📚 নোট এবং মিডটার্ম / ফাইনাল</h1>
+  <h2>📘 শিক্ষামূলক ওয়েব পৃষ্ঠা</h2>
 
-  <!-- Tab Buttons -->
-  <div class="tab-buttons">
-    <button onclick="showTab('classNotes')">ক্লাস নোট</button>
-    <button onclick="showTab('midFinal')">মিডটার্ম / ফাইনাল</button>
-    <button onclick="showTab('pdfSession')">PDF / বই সেশন</button>
-  </div>
+  <!-- বেসিক ইলেকট্রনিক্স -->
+  <button id="toggleButton">বেসিক ইলেকট্রনিক্স</button>
+  <ul id="chapterList">
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DQ4fXpNg90Do" target="_blank">১ম অধ্যায় (part-1)</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFq0dzu5oATU" target="_blank">১ম অধ্যায় (part-2)</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZ_g70Nd0PzE" target="_blank">২য় অধ্যায়</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dx0bagOCVSCY" target="_blank">৩য় অধ্যায়</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DvuyzOAjZiIw" target="_blank">৪র্থ অধ্যায়</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D4P-Z8oZttZE" target="_blank">৫ম অধ্যায় (part-1)</a></li>
+    <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiJa5rrC3HyU" target="_blank">৫ম অধ্যায় (part-2)</a></li>
+    <li><a href="https://example.com/chapter6" target="_blank">৬ষ্ঠ অধ্যায়</a></li>
+    <li><a href="https://example.com/chapter7" target="_blank">৭ম অধ্যায়</a></li>
+    <li><a href="https://example.com/chapter8" target="_blank">৮ম অধ্যায়</a></li>
+    <li><a href="https://example.com/chapter9" target="_blank">৯ম অধ্যায়</a></li>
+    <li><a href="https://example.com/chapter10" target="_blank">১০ম অধ্যায়</a></li>
+  </ul>
 
-  <!-- ===== ক্লাস নোট ===== -->
-  <div id="classNotes" class="tab-section">
-    <button onclick="toggleNoteInput()">✏️ নোট লিখো</button>
-    <div id="noteInputBox" style="display:none;">
-      <label>বিষয় নির্বাচন করো:</label>
-      <select id="subject">
-          <option value="সব">সব</option>
-          <option value="রসায়ন">রসায়ন</option>
-          <option value="বাংলা ২">বাংলা ২</option>
-          <option value="ইংরেজি ২">ইংরেজি ২</option>
-          <option value="পাইথন">পাইথন</option>
-          <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>
-          <option value="ম্যাথ ২">ম্যাথ ২</option>
-          <option value="বেসিক ইলেকট্রনিক্স">বেসিক ইলেকট্রনিক্স</option>
-      </select>
+  <!-- ম্যাথ ২ -->
+  <button id="mathButton">ম্যাথ ২</button>
+  <ul id="mathList">
+    <!-- ১ থেকে ১৫ অধ্যায় -->
+    <li><a href="#" target="_blank">১ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">২য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৩য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৪র্থ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৫ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৬ষ্ঠ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৭ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৮ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৯ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১০ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১১তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১২তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৩তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৪তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৫তম অধ্যায়</a></li>
+  </ul>
 
-      <label>তারিখ:</label>
-      <input type="date" id="date">
-      <label>ক্লাস টাইপ / ট্যাগ:</label>
-      <select id="tag">
-          <option value="test">টেস্ট</option>
-          <option value="homework">হোমওয়ার্ক</option>
-          <option value="seasonal">সেশনাল</option>
-          <option value="job">জব শিট</option>
-      </select>
+  <!-- পাইথন -->
+  <button id="pythonButton">পাইথন</button>
+  <ul id="pythonList">
+    <!-- ১ থেকে ১২ অধ্যায় -->
+    <li><a href="#" target="_blank">১ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">২য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৩য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৪র্থ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৫ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৬ষ্ঠ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৭ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৮ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৯ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১০ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১১তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১২তম অধ্যায়</a></li>
+  </ul>
 
-      <label>আজকের ক্লাসের নোট লিখো:</label>
-      <textarea id="note" rows="5" placeholder="আজকের পড়া লিখ...."></textarea>
+  <!-- রসায়ন -->
+  <button id="chemButton">রসায়ন</button>
+  <ul id="chemList">
+    <!-- ১ থেকে ১৫ অধ্যায় -->
+    <li><a href="#" target="_blank">১ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">২য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৩য় অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৪র্থ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৫ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৬ষ্ঠ অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৭ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৮ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">৯ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১০ম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১১তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১২তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৩তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৪তম অধ্যায়</a></li>
+    <li><a href="#" target="_blank">১৫তম অধ্যায়</a></li>
+  </ul>
 
-      <button onclick="generateNoteCode()">📄 Generate Code</button>
-      <button onclick="printNotes()">🖨️ Print Notes</button>
+  <script>
+    // বেসিক ইলেকট্রনিক্স
+    const button = document.getElementById('toggleButton');
+    const chapterList = document.getElementById('chapterList');
+    button.addEventListener('click', () => {
+      chapterList.style.display = chapterList.style.display === 'block' ? 'none' : 'block';
+    });
 
-      <div id="codeBox"></div>
+    // ম্যাথ ২
+    const mathButton = document.getElementById('mathButton');
+    const mathList = document.getElementById('mathList');
+    mathButton.addEventListener('click', () => {
+      mathList.style.display = mathList.style.display === 'block' ? 'none' : 'block';
+    });
 
-      <h3>👀 লাইভ প্রিভিউ:</h3>
-      <div id="livePreview"></div>
-    </div>
+    // পাইথন
+    const pythonButton = document.getElementById('pythonButton');
+    const pythonList = document.getElementById('pythonList');
+    pythonButton.addEventListener('click', () => {
+      pythonList.style.display = pythonList.style.display === 'block' ? 'none' : 'block';
+    });
 
-    <h3>📅 সংরক্ষিত নোট:</h3>
-    <div id="notes"></div>
-  </div>
+    // রসায়ন
+    const chemButton = document.getElementById('chemButton');
+    const chemList = document.getElementById('chemList');
+    chemButton.addEventListener('click', () => {
+      chemList.style.display = chemList.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
 
-  <!-- ===== মিডটার্ম / ফাইনাল ===== -->
-  <div id="midFinal" class="tab-section">
-    <button onclick="toggleMidInput()">🧾 মিডটার্ম / ফাইনাল নোট লিখো</button>
-    <div id="midInputBox" style="display:none;">
-      <label>বিষয় নির্বাচন করো:</label>
-      <select id="midSubject">
-          <option value="সব">সব</option>
-          <option value="রসায়ন">রসায়ন</option>
-          <option value="বাংলা ২">বাংলা ২</option>
-          <option value="ইংরেজি ২">ইংরেজি ২</option>
-          <option value="পাইথন">পাইথন</option>
-          <option value="গ্রাফিক্স ডিজাইন">গ্রাফিক্স ডিজাইন</option>
-          <option value="ম্যাথ ২">ম্যাথ ২</option>
-          <option value="বেসিক ইলেকট্রনিক্স">বেসিক ইলেকট্রনিক্স</option>
-      </select>
-
-      <label>তারিখ:</label>
-      <input type="date" id="midDate">
-
-      <label>পরীক্ষার ধরন / ট্যাগ:</label>
-      <select id="midTag">
-          <option value="exam">পরীক্ষা</option>
-          <option value="practical">ব্যবহারিক</option>
-      </select>
-
-      <label>মিডটার্ম / ফাইনাল নোট লিখো:</label>
-      <textarea id="midNote" rows="5" placeholder="নোট লিখো..."></textarea>
-
-      <button onclick="generateMidNoteCode()">📄 Generate Code</button>
-      <button onclick="printMidNotes()">🖨️ Print Notes</button>
-
-      <div id="midCodeBox"></div>
-
-      <h3>👀 লাইভ প্রিভিউ:</h3>
-      <div id="midLivePreview"></div>
-    </div>
-
-    <h3>📅 সংরক্ষিত নোট:</h3>
-    <div id="midNotes"></div>
-  </div>
-
-  <!-- ===== PDF / বই সেশন ===== -->
-  <div id="pdfSession" class="tab-section">
-    <h2>📑 PDF / বই সেশন</h2>
-    <div id="pdfList"></div>
-  </div>
-
-</div>
-
-<script>
-function showTab(tabId){
-  document.querySelectorAll('.tab-section').forEach(s => s.style.display='none');
-  document.getElementById(tabId).style.display='block';
-}
-
-// === ক্লাস নোট ===
-function toggleNoteInput(){
-  const box=document.getElementById('noteInputBox');
-  box.style.display = box.style.display==='none' ? 'block' : 'none';
-}
-
-const allNotes = [
-  { subject: "রসায়ন", date: "2025-10-23", note: "বৃহস্পতিবার রসায়ন ১ম অধ্যায় থেকে ক্লাস টেস্ট নিবে।", tag: "test" },
-  { subject: "ইংরেজি ২", date: "2025-10-23", note: "প্রসেস রাইটিং how to open a bank account and environment clean", tag: "test" },
-  { subject: "গ্রাফিক্স ডিজাইন", date: "2025-10-23", note: "Job 6, sceal tool", tag: "job" },
-];
-
-const pdfFiles = [
+</body>
+</html>
   { name: "রসায়ন", url: "https://github.com/Amanot1/Myweb/raw/main/chemestry.pdf"},
   { name: "পাইথন", url: "https://github.com/Amanot1/Myweb/raw/main/python.pdf" },
   { name: "ইংরেজি ২", url: "#" },
@@ -559,6 +576,7 @@ showTab('classNotes');
 </body>
 </html>
 ©.. Amanot.. 
+
 
 
 
